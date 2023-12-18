@@ -4,3 +4,12 @@ install_vimrc:
 
 add_plugin:
 	vim +PluginInstall
+
+update_plugin:
+	vim +BundleUpdate
+
+list_plugin:
+	vim +BundleList
+
+clean_plugin:
+	vim +BundleClean

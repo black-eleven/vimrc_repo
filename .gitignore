@@ -53,3 +53,5 @@ gradle/
 gradlew
 gradlew.bat
 unused.txt
+
+.vim/bundle/Plugins/
