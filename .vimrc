@@ -179,8 +179,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
-Plugin 'iamcco/markdown-preview.nvim'
-" Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'scrooloose/nerdtree'
 " Plugin 'Xuyuanp/nerdtree-git-plugin'
