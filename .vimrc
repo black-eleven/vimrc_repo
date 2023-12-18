@@ -160,5 +160,56 @@ set nobackup
 set noswapfile
 " set cursorline
 
+" remap control + arrow key to select windows
+" noremap <C-Down>  <C-W>j
+" noremap <C-Up>    <C-W>k
+" noremap <C-Left>  <C-W>h
+" noremap <C-Right> <C-W>l
+" noremap <C-J> <C-W>j
+" noremap <C-K> <C-W>k
+" noremap <C-H> <C-W>h
+" noremap <C-L> <C-W>l
 
+" ==============Vundle插件管理==============
+" Vundle manage
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'iamcco/markdown-preview.nvim'
+" Plugin 'VundleVim/Vundle.vim'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'Xuyuanp/nerdtree-git-plugin'
+" Plugin 'jistr/vim-nerdtree-tabs'
+" Plugin 'vim-airline/vim-airline' | Plugin 'vim-airline/vim-airline-themes' " Status line"
+" Plugin 'jiangmiao/auto-pairs'
+" Plugin 'mbbill/undotree'
+" Plugin 'gdbmgr'
+" Plugin 'scrooloose/nerdcommenter'
+" Plugin 'Yggdroot/indentLine' " Indentation level"
+" Plugin 'bling/vim-bufferline' " Buffer line"
+" Plugin 'yianwillis/vimcdoc'
+" Plugin 'nelstrom/vim-visual-star-search'
+" Plugin 'ludovicchabant/vim-gutentags'
+" Plugin 'w0rp/ale'
+" Plugin 'mbbill/echofunc'
+" Plugin 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" 
+" map <C-t> :NERDTreeMirror<CR>
+" map <C-t> :NERDTreeToggle<CR>
+" let g:NERDTreeDirArrowExpandable = '+'
+" let g:NERDTreeDirArrowCollapsible = '-'
+" let g:NERDTreeSize = 50
+" 
+" let g:NERDSpaceDelims = 1
+" let g:NERDCompactSexyComs = 1
+" let g:NERDDefaultAlign = 'left'
+" let g:NERDTrimTrailingWhitespace = 1
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
