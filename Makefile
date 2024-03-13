@@ -13,3 +13,10 @@ list_plugin:
 
 clean_plugin:
 	vim +BundleClean
+
+reinstall_vim:
+	brew install cmake macvim python
+
+install_ycm: add_plugin
+	cd ~/.vim/bundle/Plugins/YouCompleteMe && git submodule update --init --recursive && python3 install.py --clangd-completer --go-completer
+
