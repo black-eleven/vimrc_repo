@@ -7,6 +7,8 @@ syntax on
 colorscheme elflord
 set autowrite   " 自动保存
 
+set backspace=2
+
 " 编码设置
 set encoding=utf-8
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
@@ -87,8 +89,7 @@ function! SetShellTitle()
 endfunc
 
 function! SetPythonTitle()
-    call setline(1, "\#!/home/gynnash/tools/anaconda3/bin/python")
-    call append(line("."), "\# -*-coding=utf-8-*-")
+    call setline(1, "\# -*-coding=utf-8-*-")
 "    call SetScriptTitle()
 endfunc
 
@@ -179,7 +180,8 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin("~/.vim/bundle/Plugins")
 " let Vundle manage Vundle, required
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -211,3 +213,32 @@ let g:NERDTrimTrailingWhitespace = 1
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+
+" ==============YCM==============
+let g:ycm_server_python_interpreter='/usr/local/bin/python3'
+  " YCM 查找定义
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/Plugins/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+let mapleader=','
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_collect_identifiers_from_tags_files = 1
+set completeopt=menu,menuone
+let g:ycm_add_preview_to_completeopt = 0  " 关闭函数原型提示
+
+let g:ycm_show_diagnostics_ui = 0 " 关闭诊断信息
+let g:ycm_server_log_level = 'info'
+let g:ycm_min_num_identifier_candidate_chars = 2  " 两个字符触发 补全
+let g:ycm_collect_identifiers_from_comments_and_strings = 1 " 收集
+let g:ycm_complete_in_strings=1
+noremap <c-z> <NOP>
+let g:ycm_key_invoke_completion = '<c-z>'   " YCM 里触发语义补全有一个快捷键
+let g:ycm_max_num_candidates = 15  " 候选数量
+let g:ycm_semantic_triggers =  {
+            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+            \ 'cs,lua,javascript': ['re!\w{2}'],
+            \ }
+
+"YCM-Generator配置
+" nnoremap <C-y> :YcmGenerateConfig ./<CR>   "更新.ycm_extra_conf.py文件
