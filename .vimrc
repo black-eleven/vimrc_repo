@@ -181,7 +181,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin("~/.vim/bundle/Plugins")
 " let Vundle manage Vundle, required
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'rdnetto/YCM-Generator'
+Plugin 'PaulHaeger/YCM-Generator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jistr/vim-nerdtree-tabs'
