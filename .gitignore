@@ -55,3 +55,4 @@ gradlew.bat
 unused.txt
 
 .vim/bundle/Plugins/
+.netrwhist
