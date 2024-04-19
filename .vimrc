@@ -185,6 +185,7 @@ Plugin 'PaulHaeger/YCM-Generator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'vim-scripts/taglist.vim'
 " Plugin 'vim-airline/vim-airline' | Plugin 'vim-airline/vim-airline-themes' " Status line"
 " Plugin 'jiangmiao/auto-pairs'
 " Plugin 'mbbill/undotree'
@@ -199,6 +200,38 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " Plugin 'mbbill/echofunc'
 " Plugin 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+" ============== TagList==============
+"设置ctags路径
+let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_2/bin/ctags'
+
+"启动vim后自动打开taglist窗口
+autocmd vimenter *.cpp,*.cc,*.[ch],*.java,*.py,*.sh TlistToggle
+
+"不同时显示多个文件的tag，仅显示一个
+let Tlist_Show_One_File = 1
+
+"taglist为最后一个窗口时，退出vim
+let Tlist_Exit_OnlyWindow = 1
+
+"taglist窗口显示在右侧，缺省为左侧
+let Tlist_Use_Right_Window =1
+
+"设置taglist窗口大小
+"let Tlist_WinHeight = 100
+let Tlist_WinWidth = 40
+
+"设置taglist打开关闭的快捷键F8
+"noremap <F8> :TlistToggle<CR>
+
+"更新ctags标签文件快捷键设置
+"noremap <F6> :!ctags -R<CR>
+
+" ============== NERDTree ==============
 map <C-t> :NERDTreeMirror<CR>
 map <C-t> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '+'
@@ -210,10 +243,13 @@ let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDTrimTrailingWhitespace = 1
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" 不显示 .pyc 文件
+let NERDTreeIgnore = ['\.pyc$']
 
+" 启动 vim 时自动打开 NERDTree
+autocmd vimenter *.cpp,*.cc,*.[ch],*.java,*.py,*.sh NERDTree
+" 只剩 NERDTree 窗口时关闭 vim
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ==============YCM==============
 let g:ycm_server_python_interpreter='/usr/local/bin/python3'
