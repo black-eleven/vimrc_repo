@@ -210,7 +210,7 @@ filetype plugin indent on    " required
 let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_2/bin/ctags'
 
 "启动vim后自动打开taglist窗口
-autocmd vimenter *.cpp,*.cc,*.[ch],*.java,*.py,*.sh TlistToggle
+autocmd vimenter *.cpp,*.cc,*.[ch],*.java,*.py,*.sh,*.go TlistToggle
 
 "不同时显示多个文件的tag，仅显示一个
 let Tlist_Show_One_File = 1
@@ -247,7 +247,7 @@ let g:NERDTrimTrailingWhitespace = 1
 let NERDTreeIgnore = ['\.pyc$']
 
 " 启动 vim 时自动打开 NERDTree
-autocmd vimenter *.cpp,*.cc,*.[ch],*.java,*.py,*.sh NERDTree
+autocmd vimenter *.cpp,*.cc,*.[ch],*.java,*.py,*.sh,*.go NERDTree
 " 只剩 NERDTree 窗口时关闭 vim
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
