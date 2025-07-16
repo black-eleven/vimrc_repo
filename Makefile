@@ -18,7 +18,8 @@ reinstall_vim:
 	brew install cmake macvim python
 
 install_ycm: add_plugin
-	cd ~/.vim/bundle/Plugins/YouCompleteMe && git submodule update --init --recursive && /usr/local/bin/python3 install.py --clangd-completer --go-completer --verbose
+	# cd ~/.vim/bundle/Plugins/YouCompleteMe && git submodule update --init --recursive && /usr/local/bin/python3 install.py --clangd-completer --go-completer --verbose
+	cd ~/.vim/bundle/Plugins/YouCompleteMe && git submodule update --init --recursive && /usr/bin/python3.8 install.py --clangd-completer --go-completer --rust-completer --verbose
 
 # 因为ycm不支持python3.8以下的版本
 reinstall_python:
